@@ -1,0 +1,21 @@
+﻿Build started 2015-01-16 15:24:54.
+     1>Project "C:\Users\Mateusz\Documents\Visual Studio 2012\Projects\pprProject\pprProject\pprProject.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib MyForm.cpp edit.cpp
+         MyForm.cpp
+         edit.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Mateusz\Documents\Visual Studio 2012\Projects\pprProject\Debug\pprProject.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\pprProject.add.resources /ASSEMBLYRESOURCE:Debug\pprProject.del.resources /ASSEMBLYRESOURCE:Debug\pprProject.edit.resources /ASSEMBLYRESOURCE:Debug\pprProject.MyForm.resources /ASSEMBLYRESOURCE:Debug\pprProject.show.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Mateusz\Documents\Visual Studio 2012\Projects\pprProject\Debug\pprProject.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"Main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\add.obj
+         Debug\del.obj
+         Debug\edit.obj
+         Debug\MyForm.obj
+         Debug\settings.obj
+         Debug\show.obj
+         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+         pprProject.vcxproj -> C:\Users\Mateusz\Documents\Visual Studio 2012\Projects\pprProject\Debug\pprProject.exe
+     1>Done Building Project "C:\Users\Mateusz\Documents\Visual Studio 2012\Projects\pprProject\pprProject\pprProject.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.19
