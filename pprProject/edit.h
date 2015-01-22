@@ -45,14 +45,20 @@ namespace pprProject {
 
 
 	private: System::Windows::Forms::DataGridView^  albumEditDGV;
+
+
+
+
+
+
+
+	private: System::Windows::Forms::Button^  saveButton;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Tytu³;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Wykonawca;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Gatunek;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Rokwydania;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Rodzaj;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Przes³uchany;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Datadodania;
-	private: System::Windows::Forms::Button^  saveButton;
 
 
 
@@ -91,7 +97,6 @@ namespace pprProject {
 			this->Rokwydania = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Rodzaj = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Przes³uchany = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Datadodania = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->saveButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->albumEditDGV))->BeginInit();
 			this->SuspendLayout();
@@ -132,7 +137,7 @@ namespace pprProject {
 			// 
 			this->albumNameTextBox->Location = System::Drawing::Point(142, 56);
 			this->albumNameTextBox->Name = L"albumNameTextBox";
-			this->albumNameTextBox->Size = System::Drawing::Size(542, 20);
+			this->albumNameTextBox->Size = System::Drawing::Size(472, 20);
 			this->albumNameTextBox->TabIndex = 15;
 			// 
 			// searchButton
@@ -163,7 +168,7 @@ namespace pprProject {
 				static_cast<System::Byte>(238)));
 			this->cancelButton->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"cancelButton.Image")));
 			this->cancelButton->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->cancelButton->Location = System::Drawing::Point(536, 176);
+			this->cancelButton->Location = System::Drawing::Point(439, 175);
 			this->cancelButton->Name = L"cancelButton";
 			this->cancelButton->Padding = System::Windows::Forms::Padding(0, 0, 10, 0);
 			this->cancelButton->Size = System::Drawing::Size(200, 60);
@@ -192,19 +197,20 @@ namespace pprProject {
 			// 
 			this->artistTextBox->Location = System::Drawing::Point(142, 86);
 			this->artistTextBox->Name = L"artistTextBox";
-			this->artistTextBox->Size = System::Drawing::Size(542, 20);
+			this->artistTextBox->Size = System::Drawing::Size(472, 20);
 			this->artistTextBox->TabIndex = 19;
 			// 
 			// albumEditDGV
 			// 
 			this->albumEditDGV->AllowUserToDeleteRows = false;
 			this->albumEditDGV->BackgroundColor = System::Drawing::Color::White;
+			this->albumEditDGV->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->albumEditDGV->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->albumEditDGV->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {this->Tytu³, this->Wykonawca, 
-				this->Gatunek, this->Rokwydania, this->Rodzaj, this->Przes³uchany, this->Datadodania});
+			this->albumEditDGV->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {this->Tytu³, this->Wykonawca, 
+				this->Gatunek, this->Rokwydania, this->Rodzaj, this->Przes³uchany});
 			this->albumEditDGV->Location = System::Drawing::Point(3, 112);
 			this->albumEditDGV->Name = L"albumEditDGV";
-			this->albumEditDGV->Size = System::Drawing::Size(743, 52);
+			this->albumEditDGV->Size = System::Drawing::Size(646, 52);
 			this->albumEditDGV->TabIndex = 22;
 			// 
 			// Tytu³
@@ -237,12 +243,6 @@ namespace pprProject {
 			this->Przes³uchany->HeaderText = L"Przes³uchany";
 			this->Przes³uchany->Name = L"Przes³uchany";
 			// 
-			// Datadodania
-			// 
-			this->Datadodania->HeaderText = L"Data dodania";
-			this->Datadodania->Name = L"Datadodania";
-			this->Datadodania->ReadOnly = true;
-			// 
 			// saveButton
 			// 
 			this->saveButton->BackColor = System::Drawing::Color::White;
@@ -252,7 +252,7 @@ namespace pprProject {
 				static_cast<System::Byte>(238)));
 			this->saveButton->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"saveButton.Image")));
 			this->saveButton->ImageAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->saveButton->Location = System::Drawing::Point(276, 175);
+			this->saveButton->Location = System::Drawing::Point(226, 175);
 			this->saveButton->Name = L"saveButton";
 			this->saveButton->Padding = System::Windows::Forms::Padding(0, 0, 10, 0);
 			this->saveButton->Size = System::Drawing::Size(200, 60);
@@ -266,8 +266,8 @@ namespace pprProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::DarkGray;
-			this->ClientSize = System::Drawing::Size(748, 248);
+			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
+			this->ClientSize = System::Drawing::Size(651, 248);
 			this->Controls->Add(this->saveButton);
 			this->Controls->Add(this->albumEditDGV);
 			this->Controls->Add(this->artistTextBox);
@@ -277,8 +277,10 @@ namespace pprProject {
 			this->Controls->Add(this->albumNameTextBox);
 			this->Controls->Add(this->albumNameLabel);
 			this->Controls->Add(this->titleLabel);
+			this->MaximumSize = System::Drawing::Size(667, 286);
+			this->MinimumSize = System::Drawing::Size(667, 286);
 			this->Name = L"edit";
-			this->Text = L"edit";
+			this->Text = L"Baza albumów muzycznych - edytowanie albumu";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->albumEditDGV))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -299,7 +301,7 @@ namespace pprProject {
 			}
 			
 			else {
-				if(!(readFile->Contains(albumNameTextBox->Text + "  - " + artistTextBox->Text)))  {
+				if(!(readFile->Contains(albumNameTextBox->Text + "-" + artistTextBox->Text)))  {
 					 MessageBox::Show("Taki album nie istnieje w bazie.",
 							"Album nie istnieje", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);	
 					 albumNameTextBox->Focus();
@@ -310,14 +312,11 @@ namespace pprProject {
 					String^ artistName = artistTextBox->Text;
 				
 					StreamReader^ din = File::OpenText("albums/" + albumName + "-" + artistName + ".txt");
-								
-					String^ str;
-					int i = 0;	
 					
-					while ((str = din->ReadLine()) != nullptr) {
-						albumEditDGV->Rows[0]->Cells[i]->Value = str;
-						i++;	
-					}
+						for(int i = 0; i < 6; i++) {
+							String^ str = din->ReadLine();
+							albumEditDGV->Rows[0]->Cells[i]->Value = str;
+						}
 					
 					din->Close();
 				}
@@ -325,54 +324,69 @@ namespace pprProject {
 		 }
 	
 	private: System::Void saveButton_Click_1(System::Object^  sender, System::EventArgs^  e) {
-		String^ albumName = albumNameTextBox->Text;
-		String^ artistName = artistTextBox->Text;
+		if((albumEditDGV->Rows[0]->Cells[0]->Value == nullptr) ||
+			(albumEditDGV->Rows[0]->Cells[1]->Value == nullptr) || 
+			(albumEditDGV->Rows[0]->Cells[2]->Value == nullptr) || 
+			(albumEditDGV->Rows[0]->Cells[3]->Value == nullptr) || 
+			(albumEditDGV->Rows[0]->Cells[4]->Value == nullptr) || 
+			(albumEditDGV->Rows[0]->Cells[5]->Value == nullptr) 
+			) {
+			MessageBox::Show("Wype³nij wszystkie pola!", "Puste pola", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		}
+		else {
+			String^ albumName = albumNameTextBox->Text;
+			String^ artistName = artistTextBox->Text;
 			
-		String^ filePath = "albums/" + albumName + "-" + artistName + ".txt";
+			String^ filePath = "albums/" + albumName + "-" + artistName + ".txt";
 			
-		Object^ newAlbumName = albumEditDGV->Rows[0]->Cells[0]->Value;
-		Object^ newArtistName = albumEditDGV->Rows[0]->Cells[1]->Value;
-			
-		if((albumName != newAlbumName) || (artistName != newArtistName)) {
-			File::Delete(filePath);
-				 
-			StreamReader^ din = File::OpenText("albums/albumsList.txt");
-			String^ words = "";
-			String^ str;
-							
-			while ((str = din->ReadLine()) != nullptr) {
-				if(str != (albumName + "  - " + artistName)) {
-					words += str + "\n";
-				}		
-			}	
-				
-			words += newAlbumName + "  - " + newArtistName + "\n";	
-			din->Close();
-				
-			StreamWriter^ albumsListFile = gcnew StreamWriter("albums/albumsList.txt");
-			albumsListFile->Write(words);
-			albumsListFile->Close();
+			Object^ newAlbumName = albumEditDGV->Rows[0]->Cells[0]->Value;
+			Object^ newArtistName = albumEditDGV->Rows[0]->Cells[1]->Value;
 
-			StreamWriter^ albumFile = gcnew StreamWriter("albums/" + newAlbumName + "-" + newArtistName + ".txt");
-					
-			for(int i = 0; i < 6; i++) {
-				albumFile->WriteLine(albumEditDGV->Rows[0]->Cells[i]->Value);		
-				}
-					
-			albumFile->Close(); 
-		}
+			if((albumName != newAlbumName) || (artistName != newArtistName)) {
+				File::Delete(filePath);
+				 
+				StreamReader^ din = File::OpenText("albums/albumsList.txt");
+				String^ words = "";
+				String^ str;
+							
+				while ((str = din->ReadLine()) != nullptr) {
+					if(str != (albumName + "-" + artistName)) {
+						words += str + "\n";
+					}		
+				}	
+				
+				words += newAlbumName + "-" + newArtistName + "\n";	
+				din->Close();
+				
+				StreamWriter^ albumsListFile = gcnew StreamWriter("albums/albumsList.txt");
+				albumsListFile->Write(words);
+				albumsListFile->Close();
+
+				StreamWriter^ albumFile = gcnew StreamWriter("albums/" + newAlbumName + "-" + newArtistName + ".txt");		
 			
-		else {			
-			StreamWriter^ albumFile = gcnew StreamWriter(filePath);
-					
-			for(int i = 0; i < 6; i++) {
-				albumFile->WriteLine(albumEditDGV->Rows[0]->Cells[i]->Value);		
+				for(int i = 0; i < 6; i++) {		
+					albumFile->WriteLine(albumEditDGV->Rows[0]->Cells[i]->Value);				
+				}	
+				albumFile->WriteLine(DateTime::Now);
+				albumFile->Close(); 
 			}
-					
-			albumFile->Close(); 
-		}
 			
-		this->Close();
+			else {			
+				StreamWriter^ albumFile = gcnew StreamWriter(filePath);
+					
+				for(int i = 0; i < 6; i++) {	
+					albumFile->WriteLine(albumEditDGV->Rows[0]->Cells[i]->Value);			
+				}
+				albumFile->WriteLine(DateTime::Now);
+				albumFile->Close(); 
+			}
+			
+			this->Close();
+		}
+				 
+				 
+				 
+		
 	}
 };
 }

@@ -282,7 +282,7 @@ namespace pprProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::DarkGray;
+			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(384, 312);
 			this->Controls->Add(this->listenedCheckBox);
 			this->Controls->Add(this->ListenedLabel);
@@ -299,9 +299,10 @@ namespace pprProject {
 			this->Controls->Add(this->yearLabel);
 			this->Controls->Add(this->artistLabel);
 			this->Controls->Add(this->albumNameLabel);
-			this->MinimumSize = System::Drawing::Size(400, 200);
+			this->MaximumSize = System::Drawing::Size(400, 350);
+			this->MinimumSize = System::Drawing::Size(400, 350);
 			this->Name = L"add";
-			this->Text = L"add";
+			this->Text = L"Baza albumów muzycznych - dodawanie albumu";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -309,12 +310,13 @@ namespace pprProject {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {		
 			this->Close();
-			 }
+			}
 	
 	private: System::Void addButton_Click(System::Object^  sender, System::EventArgs^  e) {
 			 
 		if((albumNameTextBox->Text == "") || (artistTextBox->Text == "") || (genreTextBox->Text == "") || (yearTextBox->Text == "") || (typeTextBox->Text == "")) {
 			MessageBox::Show("Wypełnij wszystkie pola!", "Puste pola", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			albumNameTextBox->Focus();
 		}
 			 
 		else {		
@@ -324,17 +326,18 @@ namespace pprProject {
 			String^ year = yearTextBox->Text;
 			String^ type = typeTextBox->Text;			
 			String^ readFile= File::ReadAllText("albums/albumsList.txt");
-			String^ listened = "";
+			String^ listened = "";			
 			if(listenedCheckBox->Checked == true) {
 				listened = "Tak";
-			}
+			}			
 			else {
 				listened = "Nie";
-			}
+			}	
 			DateTime^ added = DateTime::Now;
 
-			if(readFile->Contains(albumName + " - " + artistName)) {			
+			if(readFile->Contains(albumName + "-" + artistName)) {			
 				MessageBox::Show("Taki album już istnieje w bazie.", "Album już istnieje", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+				albumNameTextBox->Focus();
 			}
 					
 			else {
@@ -351,7 +354,7 @@ namespace pprProject {
 				albumFile->Close(); 
 						
 				StreamWriter^ albumsListFile = File::AppendText("albums/albumsList.txt");
-				albumsListFile->WriteLine(albumName + "  - " + artistName);
+				albumsListFile->WriteLine(albumName + "-" + artistName);
 				albumsListFile->Close();
 						
 				String^ newAlbum = 
@@ -361,7 +364,7 @@ namespace pprProject {
 					"Rok wydania: " + year + "\n" +
 					"Rodzaj albumu: " + type + "\n" + 
 					"Przesłuchany: " + listened + "\n" + 
-					"Dodany: " + added;			
+					"Dodany/Zmodyfikowany: " + added;			
 						
 				MessageBox::Show(newAlbum, "Album został dodany do bazy!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 				this->Close();

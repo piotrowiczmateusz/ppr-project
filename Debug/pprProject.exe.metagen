@@ -2,6 +2,7 @@
   pprProject.del.resources - Embedded, ContainedInManifestFile, 
   pprProject.edit.resources - Embedded, ContainedInManifestFile, 
   pprProject.MyForm.resources - Embedded, ContainedInManifestFile, 
+  pprProject.settings.resources - Embedded, ContainedInManifestFile, 
   pprProject.show.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly pprProject, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
@@ -30,9 +31,9 @@ Class pprProject.edit: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class pprProject.show: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class pprProject.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class pprProject.settings: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class pprProject.settings: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class pprProject.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

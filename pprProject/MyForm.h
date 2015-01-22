@@ -3,6 +3,7 @@
 #include "show.h"
 #include "del.h"
 #include "edit.h"
+#include "settings.h"
 
 namespace pprProject {
 
@@ -53,6 +54,7 @@ namespace pprProject {
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Label^  albumsList;
 	private: System::Windows::Forms::Button^  refreshButton;
+	private: System::Windows::Forms::Button^  settingsButton;
 
 	private:
 		/// <summary>
@@ -79,6 +81,7 @@ namespace pprProject {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->albumsList = (gcnew System::Windows::Forms::Label());
 			this->refreshButton = (gcnew System::Windows::Forms::Button());
+			this->settingsButton = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -217,7 +220,7 @@ namespace pprProject {
 			// 
 			// panel1
 			// 
-			this->panel1->BackColor = System::Drawing::Color::Silver;
+			this->panel1->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->panel1->Controls->Add(this->Exit);
 			this->panel1->Controls->Add(this->deleteButton);
 			this->panel1->Controls->Add(this->addButton);
@@ -256,21 +259,38 @@ namespace pprProject {
 			this->refreshButton->UseVisualStyleBackColor = false;
 			this->refreshButton->Click += gcnew System::EventHandler(this, &MyForm::refreshButton_Click);
 			// 
+			// settingsButton
+			// 
+			this->settingsButton->BackColor = System::Drawing::Color::White;
+			this->settingsButton->FlatAppearance->BorderSize = 0;
+			this->settingsButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->settingsButton->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"settingsButton.Image")));
+			this->settingsButton->Location = System::Drawing::Point(579, 7);
+			this->settingsButton->MaximumSize = System::Drawing::Size(40, 40);
+			this->settingsButton->MinimumSize = System::Drawing::Size(40, 40);
+			this->settingsButton->Name = L"settingsButton";
+			this->settingsButton->Size = System::Drawing::Size(40, 40);
+			this->settingsButton->TabIndex = 12;
+			this->settingsButton->UseVisualStyleBackColor = false;
+			this->settingsButton->Click += gcnew System::EventHandler(this, &MyForm::settingsButton_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::DarkGray;
+			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(624, 442);
+			this->Controls->Add(this->settingsButton);
 			this->Controls->Add(this->refreshButton);
 			this->Controls->Add(this->albumsList);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->albumsListTitle);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->titleLabel);
+			this->MaximumSize = System::Drawing::Size(640, 480);
 			this->MinimumSize = System::Drawing::Size(640, 480);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"Baza albumów muzycznych";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
@@ -313,5 +333,9 @@ namespace pprProject {
 			 Application::Exit();
 			}
 		 
+	private: System::Void settingsButton_Click(System::Object^  sender, System::EventArgs^  e) {
+			 settings^ settingsForm = gcnew settings();
+			 settingsForm->ShowDialog();
+			}
 };
 }

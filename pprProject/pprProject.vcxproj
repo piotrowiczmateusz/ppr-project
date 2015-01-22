@@ -118,6 +118,9 @@
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="settings.resx">
+      <DependentUpon>settings.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="show.resx">
       <DependentUpon>show.h</DependentUpon>
     </EmbeddedResource>

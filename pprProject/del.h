@@ -1,5 +1,7 @@
 ﻿#pragma once
-
+#using <System.DLL>
+#using <System.Drawing.DLL>
+#using <System.Windows.Forms.DLL>
 namespace pprProject {
 
 	using namespace System;
@@ -9,6 +11,8 @@ namespace pprProject {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::IO;
+
+	
 
 	/// <summary>
 	/// Summary for del
@@ -169,7 +173,7 @@ namespace pprProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::DarkGray;
+			this->BackColor = System::Drawing::SystemColors::AppWorkspace;
 			this->ClientSize = System::Drawing::Size(384, 196);
 			this->Controls->Add(this->artistTextBox);
 			this->Controls->Add(this->artistLabel);
@@ -178,8 +182,10 @@ namespace pprProject {
 			this->Controls->Add(this->addButton);
 			this->Controls->Add(this->albumNameLabel);
 			this->Controls->Add(this->titleLabel);
+			this->MaximumSize = System::Drawing::Size(400, 234);
+			this->MinimumSize = System::Drawing::Size(400, 234);
 			this->Name = L"del";
-			this->Text = L"del";
+			this->Text = L"Baza albumów muzycznych - usuwanie albumu";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -196,19 +202,21 @@ namespace pprProject {
 			 			 
 		if((albumName == "") || (artistName == "")) {
 			MessageBox::Show("Wypełnij wszystkie pola!", "Puste pola", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			albumNameTextBox->Focus();
 		}
 
 		else {
 			String^ readFile= File::ReadAllText("albums/albumsList.txt");
 
-			if(!(readFile->Contains(albumName + "  - " + artistName))) {
+			if(!(readFile->Contains(albumName + "-" + artistName))) {
 				MessageBox::Show("Taki album nie istnieje w bazie.", "Album nie istnieje", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);		
+				albumNameTextBox->Focus();
 			}
 					
 			else {					
-				MessageBox::Show("Czy na pewno chcesz usunąć album " + albumName + "?", "Usuwanie albumu", MessageBoxButtons::YesNoCancel, MessageBoxIcon::Warning);
+				System::Windows::Forms::DialogResult result = MessageBox::Show("Czy na pewno chcesz usunąć album " + albumName + "?", "Usuwanie albumu", MessageBoxButtons::YesNo, MessageBoxIcon::Warning);
 														
-				if(true /*warunek yes z messagebox*/) {						
+				if(result == System::Windows::Forms::DialogResult::Yes) {						
 					String^ filePath = "albums/" + albumName + "-" + artistName + ".txt";
 					File::Delete(filePath);
 							
@@ -217,7 +225,7 @@ namespace pprProject {
 					String^ str;
 							
 					while ((str = din->ReadLine()) != nullptr) {
-						if(str != (albumName + "  - " + artistName)) {
+						if(str != (albumName + "-" + artistName)) {
 							words += str + "\n";
 						}	
 					}
